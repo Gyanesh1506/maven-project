@@ -10,7 +10,7 @@ pipeline {
         } 
         stage ('Printing status') {
             steps {
-                echo 'This is successful"
+                echo 'This is successful'
             }
         }     
     }
