@@ -7,6 +7,11 @@ pipeline {
                 sh 'mvn test'
                 }
             }
-        }        
+        } 
+        stage ('Printing status') {
+            steps {
+                echo 'This is successful"
+            }
+        }     
     }
 }
