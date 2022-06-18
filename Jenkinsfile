@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stge ('Pulling code from Git') {
+        stage ('Pulling code from Git') {
             steps {
                 git branch: 'gyanesh', url: 'https://github.com/Gyanesh1506/maven-project.git'
             }
