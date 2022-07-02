@@ -8,13 +8,13 @@ pipeline {
                 }
             }
         } 
-        stage ('Building pkg') {
+        stage ('Sonar') {
             steps {
-              withMaven(maven: 'MAVEN_HOME') {
-              sh 'mvn test'
-              }
+                withSonarQubeEnv(credentialsId: 'Sonar') {
+                sh 'mvn package sonar:sonar'
+                }
             }
-        }
+        }     
         stage ('Printing status') {
             steps {
                 echo 'This is successful'
