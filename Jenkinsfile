@@ -10,9 +10,11 @@ pipeline {
         } 
         stage ('Sonar') {
             steps {
-                withSonarQubeEnv(credentialsId: 'Sonar', installationName: 'sonar') {
-                sh 'mvn package sonar:sonar'
-                }
+                withMaven(maven: 'MAVEN_HOME') {
+                   withSonarQubeEnv(credentialsId: 'Sonar', installationName: 'sonar') {
+                   sh 'mvn package sonar:sonar'
+                  }
+                }    
             }
         }     
         stage ('Printing status') {
